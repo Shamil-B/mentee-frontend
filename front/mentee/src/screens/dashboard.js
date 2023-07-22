@@ -4,6 +4,8 @@ import Footer from "../components/footer";
 import Profile from "../components/profile";
 import MenteeHeader from "../components/mentee_header";
 
+import { localIp, globalIp } from "../constants.js";
+
 export default function Dashboard() {
   const [allLectures, setAllLectures] = useState([]);
   const [subscribedLectures, setSubscribedLectures] = useState([]);
@@ -14,7 +16,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     // we should fetch for both subscribed and created lectures and set their corresponding states
-    fetch("http://localhost:5000/lectures")
+    fetch(globalIp+"/lectures")
       .then((res) => res.json())
       .then((data) => {
         setAllLectures(data);
@@ -25,7 +27,7 @@ export default function Dashboard() {
 
     // and the above fetch should be removed
 
-    fetch("http://localhost:5000/profile")
+    fetch(globalIp+"/profile")
       .then((res) => res.json())
       .then((data) => {
         setProfileInfo(data);
