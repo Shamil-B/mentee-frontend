@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { PrimaryButton } from "../components/buttons";
 
 import { useState, useEffect } from "react";
-import { localIp } from "../constants";
+import { localIp,globalIp } from "../constants";
 import Footer from "../components/footer";
 import MenteeHeader from "../components/mentee_header";
 
@@ -18,10 +18,10 @@ export default function ClassStatusPage(props) {
   const isActive = true;
   const isInstructor = false;
 
-  const socket = io.connect("http://localhost:5000");
+  const socket = io.connect(globalIp);
 
   useEffect(() => {
-    fetch(localIp + "/lecture/" + classId, {
+    fetch(globalIp + "/lecture/" + classId, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
