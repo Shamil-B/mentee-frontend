@@ -7,6 +7,8 @@ import { PrimaryButton } from "../components/buttons.js";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { localIp,globalIp } from "../constants.js";
+
 // things to improve on this page to make it professional are the following
 
 const getTestimonials = (image_src, name, num_of_stars, testimonial_text) => {
@@ -64,7 +66,7 @@ export default function Home() {
   const [socialLogos, setSocialLogos] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/")
+    fetch(globalIp)
       .then((res) => res.json())
       .then((data) => {
         setHomePageData(data);
