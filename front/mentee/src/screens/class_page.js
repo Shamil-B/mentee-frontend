@@ -12,7 +12,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const socket = io.connect(globalIp);
+const socket = io.connect(globalIp,{  transports: ["websocket"],
+});
 
 export default function ClassPage() {
   const [chatWidth, setChatWidth] = useState("w-0");
