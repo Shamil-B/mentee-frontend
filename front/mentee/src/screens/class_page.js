@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import Peer from "peerjs";
-import { localIp } from "../constants";
+import { localIp, globalIp } from "../constants";
 
 import {
   faPlay,
@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const socket = io.connect(localIp);
+const socket = io.connect(globalIp);
 
 export default function ClassPage() {
   const [chatWidth, setChatWidth] = useState("w-0");
@@ -262,7 +262,7 @@ export default function ClassPage() {
     }
   }
   useEffect(() => {
-    fetch(`${localIp}/lecture/${roomId}`, {
+    fetch(`${globalIp}/lecture/${roomId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
