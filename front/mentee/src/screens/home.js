@@ -69,6 +69,7 @@ export default function Home() {
     fetch(globalIp)
       .then((res) => {
         console.log(res);
+        console.log(res.body);
         return res.json();
       })
       .then((data) => {
