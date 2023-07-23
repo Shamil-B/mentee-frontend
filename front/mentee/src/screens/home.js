@@ -68,8 +68,6 @@ export default function Home() {
   useEffect(() => {
     fetch(globalIp)
       .then((res) => {
-        console.log(res);
-        console.log(res.json());
         return res.json();
       })
       .then((data) => {
