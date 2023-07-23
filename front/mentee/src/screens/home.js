@@ -67,7 +67,10 @@ export default function Home() {
 
   useEffect(() => {
     fetch(globalIp)
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
       .then((data) => {
         setHomePageData(data);
         setFeatureCards(data.featureCards);
